@@ -10,13 +10,28 @@
 
 	var Logic = {
 		start: function(){
-
+			Logic.events();
 		},
 
 		events: function(){
 			window.onscroll = function(){
-				var scrollTop = window.scrollTop;
+				var scrollTop = $(window).scrollTop();
+				if(scrollTop > 100){
+					if(backTop.css('display') != 'none'){
+						return;
+					}
+					backTop.show();
+				}else{
+					if(backTop.css('display') == 'none'){
+						return;
+					}
+					backTop.hide();
+				}
 			};
+
+			backTop.click(function(){
+				window.scrollTo(0, 0);
+			});
 		}
 	};
 
