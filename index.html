@@ -1,0 +1,18 @@
+---
+layout: default
+title: 技术是一种思维方式
+---
+
+<div id="home">
+  <h1>博客-文章</h1>
+  <ul class="posts">
+    {% for post in site.posts %}
+      <li><span>{{ post.date | date_to_string }}</span> &raquo; <a href="{{ site.baseurl }}{{ post.url }}">{{ post.title }}</a></li>
+    {% endfor %}
+  </ul>
+
+  <h1>友情-链接</h1>
+  <ul class="posts">
+    <li><a href="http://github.com/mojombo/chronic/">Chronic:</a> Ruby natural language date/time parser.</li>
+  </ul>
+</div>

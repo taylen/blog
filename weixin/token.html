@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>微信Token校验</title>
+</head>
+<body>
+<script type="text/javascript">
+if(document.location.protocol!='https:'){
+	document.write(unescape("%3Cscript%20src='http://taylen.github.io/blog/js/jquery-1.8.3.min.js'%20type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+<script type="text/javascript">
+if(document.location.protocol!='https:'){
+	document.write(unescape("%3Cscript%20src='http://taylen.github.io/blog/js/sha1.js'%20type='text/javascript'%3E%3C/script%3E"));
+}
+</script>
+<script type="text/javascript">
+//私钥
+var token = "jinglvzhe";
+
+function getParam(str){
+	var params = location.search,
+		arr = params.substring(1).split("&"),
+		len = arr.length;
+	for(var i = 0; i< len; i++){
+		var temp = arr[i],
+			pos = temp.indexOf("="),
+			key = temp.substring(0, pos);
+		if(key == str){
+			return temp.substring(pos+1);
+		}
+	}
+}
+
+function checkURL(){
+	var signature = getParam("signature"),
+		timestamp = getParam("timestamp"),
+		nonce = getParam("nonce"),
+		echostr = getParam("echostr");
+	if(!signature || !timestamp || !nonce || !echostr){
+		return false;
+	}else{
+		return [token, timestamp, nonce];
+	}
+}
+
+function checkSign(){
+	var params = checkURL();
+	if(!params){
+		return false;
+	}else{
+		var str = params.join(""),
+			signature = getParam("signature");
+		var sign = hex_sha1(str);
+		if(sign == signature){
+			return true;
+		}else{
+			return false;
+		}
+	}
+}
+
+function init(){
+	if(!checkSign()){
+		return;
+	}else{
+		var echostr = getParam("echostr");
+		document.write(echostr);
+	}
+}
+
+init();
+
+</script>
+</body>
+</html>
