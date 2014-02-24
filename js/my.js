@@ -10,23 +10,28 @@
 
 	var Logic = {
 		start: function(){
+			Logic.initTop();
 			Logic.events();
+		},
+
+		initTop: function(){
+			var scrollTop = $(window).scrollTop();
+			if(scrollTop > 100){
+				if(backTop.css('display') != 'none'){
+					return;
+				}
+				backTop.show();
+			}else{
+				if(backTop.css('display') == 'none'){
+					return;
+				}
+				backTop.hide();
+			}
 		},
 
 		events: function(){
 			window.onscroll = function(){
-				var scrollTop = $(window).scrollTop();
-				if(scrollTop > 100){
-					if(backTop.css('display') != 'none'){
-						return;
-					}
-					backTop.show();
-				}else{
-					if(backTop.css('display') == 'none'){
-						return;
-					}
-					backTop.hide();
-				}
+				Logic.initTop();
 			};
 
 			backTop.click(function(){
