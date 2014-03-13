@@ -32,7 +32,7 @@ title: JavaScript零散知识点
 	对于Fiddler不信任客户端的安全证书的情况怎么办呢？相信很多https请求，Fiddler都不信任他们的安全证书，简单的说装一个就行了。
 	网上爬虫了很久很久，终于找到了这篇文章：
 	http://blogs.telerik.com/automated-testing-tools/posts/12-12-21/using-fiddler-with-apple-ios-devices
-	<img src="{{site.baseurl}}/images/fiddler/solver.png" />
+	<img src="{{site.baseurl}}/images/fiddler/solve.png" />
 	安装后一切搞定，可以抓到手机上任何的HTTPS请求，但是HTTPS一般都是涉及支付或者安全操作使用的协议，你不想别人把你的安全信息偷取吧，所以不要用别人的Fiddler，或者公共的免费Wifi，小心信息被盗！
 </p>
 
