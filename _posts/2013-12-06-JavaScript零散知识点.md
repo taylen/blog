@@ -11,13 +11,16 @@ title: JavaScript零散知识点
 
 
 <h3>1. location.replace 与 location.href</h3>
-<p>
-	location的replace方法和href属性都是修改URL的方法，但是replace方法是通过替换history的当前URL实现跳转的，不能通过返回按钮回到被替换的页面，<b>这个特点对于做一些过渡页面非常有用！</b>；<br/>
+<p class="pre">
+	location的replace方法和href属性都是修改URL的方法，但是replace方法是通过替换history的当前URL实现跳转的，不能通过返回按钮回到被替换的页面，<b>这个特点对于做一些过渡页面非常有用！</b>；
 	而href属性是往history里push了一条记录，从而实现修改URL，是可以通过返回按钮返回的。
-
+	关于过渡性页面需要特别说明下，例如：
+	有三个页面A、B、C，B是中间页，B页面负责鉴权操作或者刷新用户登录态，用户从A页面跳到C页面时，C发现登录失效，跳到B页面，B成功后跳到C页面。
+	如果通过location.href从B跳到C页面，当用户点击返回按钮，就会返回到B页面，B会自动再跳到C页面，就有问题；
+	但是如果通过location.replace实现B到其他页面的跳转，就不会有这个问题了。
 </p>
 
-<h3>Fiddler配置抓取HTTPS后，仍然抓取不到部分HTTPS，显示为Tunnel to</h3>
+<h3>2. Fiddler配置抓取HTTPS后，仍然抓取不到部分HTTPS，显示为Tunnel to</h3>
 <p>
 	当开启Fiddler抓包HTTPS后，发现仍有部分站点的HTTPS抓取不到，网上搜索了半天终于找到了一遍文章：<br/>
 	<a href="http://stackoverflow.com/questions/16171277/fiddler-tunnelled-http-requests-to-port-443" target="_blank">http://stackoverflow.com/questions/16171277/fiddler-tunnelled-http-requests-to-port-443</a><br/>
