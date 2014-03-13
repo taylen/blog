@@ -19,17 +19,17 @@ title: JavaScript零散知识点
 
 <h3>Fiddler配置抓取HTTPS后，仍然抓取不到部分HTTPS，显示为Tunnel to</h3>
 <p>
-	当开启Fiddler抓包HTTPS后，发现仍有部分站点的HTTPS抓取不到，网上搜索了半天终于找到了一遍文章：<a href="http://stackoverflow.com/questions/16171277/fiddler-tunnelled-http-requests-to-port-443" target="_blank">http://stackoverflow.com/questions/16171277/fiddler-tunnelled-http-requests-to-port-443</a><br/>
+	当开启Fiddler抓包HTTPS后，发现仍有部分站点的HTTPS抓取不到，网上搜索了半天终于找到了一遍文章：<br/>
+	<a href="http://stackoverflow.com/questions/16171277/fiddler-tunnelled-http-requests-to-port-443" target="_blank">http://stackoverflow.com/questions/16171277/fiddler-tunnelled-http-requests-to-port-443</a><br/>
 	<img src="{{site.baseurl}}/images/fiddler/https.png"/>
 </p>
 <p>
-	英文不太好的我，看了半天终于明白他的含义，简单描述如下：<br/>
-	即使开启Fiddler Https抓包后，仍然可能获取不到Https的原因有一下几点：<br/>
+	英文不太好的我，看了半天终于明白他的含义，简单翻译下。即使开启Fiddler Https抓包后，仍然可能获取不到Https的原因有一下几点：<br/>
 	1. 是否在HTTPS选项卡中过滤了该域名；<br/>
 	2. 是否windows系统已经信任了Fiddler的Root 证书；<br/>
 	3. 可能你请求的服务器不信任Fiddler的安全证书，中断你的请求，导致网页打不开（我就是遇到了这种情况）<br/>
 
-	对于服务器不信任Fiddler安全证书的情况怎么办呢？
+	对于服务器不信任Fiddler安全证书的情况怎么办呢？相信很多https服务器对Fiddler的安全证书都进行了过滤
 </p>
 
 <p>
