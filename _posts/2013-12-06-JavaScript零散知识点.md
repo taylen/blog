@@ -38,6 +38,9 @@ title: JavaScript零散知识点
 	<img src="{{site.baseurl}}/images/fiddler/solve.png" />
 	安装后一切搞定，可以抓到手机上任何的HTTPS请求，但是HTTPS一般都是涉及支付或者安全操作使用的协议，你不想别人把你的安全信息偷取吧，所以不要用别人的Fiddler，或者公共的免费Wifi，小心信息被盗！
 </p>
+<p>
+	3. 增加后为什么不生效？
+</p>
 
 <p>
 	持续更新中...
